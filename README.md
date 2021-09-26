@@ -37,4 +37,13 @@ git checkout branch-dest
 git merge branch-source // this is equivalent of git commit only you need to push the changes
 
 
+-- git stash - allows to stash changes on that branch in temporary git space (this is not staging space)
+git stash save 
+git stash list // list all the stashed changes
+git stash apply --index <index_id> // apply the stash changes
 
+OR alternate to stash could be creating a new branch with that temporary changes and commiting
+.. do some changes on that branch
+git branch <master_featuresave>
+git add -a 
+git commit -m "temporary stashes branched"
