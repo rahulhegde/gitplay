@@ -1,49 +1,44 @@
 # gitplay
 
 
+## GIT work area
+working directory --- staging --- local repository --- remote repository (like https://github.com/rahulhegde/gitplay/)
 
--- GIT work area
-working directory --- staging --- local repository --- remote repository (online like https://github.com/rahulhegde/gitplay/)
+### Right movement of changes
+    - working directory - any local changes, saved in editor. 
+    - working -> staging - git add
+    - staging -> local repoitory - git commit 
+    - local repo -> remote repo - git push
 
-right movement
- - working directory - any local changes 
- - working -> staging - git add
- - staging -> local repoitory - git commit 
- - local repo -> remote repo - git push
+### left movement of changes 
+    - staging -> working	- git restore <filename>
+    - local repo -> staging - git restore <filename> --staged
+    - remote repo -> local repo - git reset origin/master
+ ### sync the working directory 
+    - remote repo -> local repo & working directory - git reset --hard origin/master
 
-left movement 
- - staging -> working	- git restore <filename>
- - local repo -> staging - git restore <filename> --staged
- - remote repo -> local repo - git reset origin/master
- 
- also sync the working directory
- - remote repo -> local repo & working directory - git reset --hard origin/master
+### get change from remote repo
+    - git fetch - remote repo to local repo
+    - git pull - remote repo to local repo and working directory 
 
--- get change from remote repo
-git fetch - remote repo to local repo
-git pull - remote repo to local repo and working directory 
+### move from 1 branch to another branch for work
+    - git checkout branch-playcricket-feature //move branch-playcricket-feature
+    - git add -a  // after making changes, updated staging directory
+    - git commit -m "cricket feature added" // commit the changes to local repository
+    - git checkout branch-playhockey-feature // resume back to original branch-playhockey-feature
+    - git branch /// confirm the active branch
 
--- move from 1 branch to another for work
-
-git checkout branch-playcricket-feature
-git add -a => git commit -m "cricket feature added"
-
-git checkout branch-playhockey-feature
-git branch ==> list which branch is active 
-git add => git commit -m "hockey feature added"
-
--- merge change from branch-source to branch-dest  
-git checkout branch-dest  
-git merge branch-source // this is equivalent of git commit only you need to push the changes
+### merge change from branch-source to branch-dest  
+    - git checkout branch-dest  
+    - git merge branch-source   // this is equivalent of git commit only you need to push the changes
 
 
--- git stash - allows to stash changes on that branch in temporary git space (this is not staging space)
-git stash save 
-git stash list // list all the stashed changes
-git stash apply --index <index_id> // apply the stash changes
+### stash changes to temporary git space. This is not staging space
+    - git stash save // push or stash the changes temporary 
+    - git stash list // list all the stashed changes, this is stored as an indexed list
+    - git stash apply --index <index_id> // apply the stash changes
 
-OR alternate to stash could be creating a new branch with that temporary changes and commiting
-.. do some changes on that branch
-git branch <master_featuresave>
-git add -a 
-git commit -m "temporary stashes branched"
+### alternate to stash could be creating a new branch with that temporary changes and commiting
+    - git branch <master_featuresave>
+    - git add -a 
+    - git commit -m "temporary stashes branched"
